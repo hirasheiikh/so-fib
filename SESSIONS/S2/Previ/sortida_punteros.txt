@@ -1,0 +1,38 @@
+Puntero 0x7fffd6508b00 buff_int=0x7fffd6508b00 &buff_int[0]=0x7fffd6508b00
+Usamos el puntero pbuff_int-------------------
+Accedemos a traves de buff[i]
+En la posicion 0 hay 0
+En la posicion 1 hay 1
+En la posicion 2 hay 2
+En la posicion 3 hay 3
+Accedemos a traves de *buff
+En la posicion 0 hay 0
+En la posicion 1 hay 1
+En la posicion 2 hay 2
+En la posicion 3 hay 3
+Usamos el vector buff_int-------------------
+Accedemos a traves de buff[i]
+En la posicion 0 hay 0
+En la posicion 1 hay 1
+En la posicion 2 hay 2
+En la posicion 3 hay 3
+Accedemos a traves de *buff
+En la posicion 0 hay 0
+En la posicion 1 hay 1
+En la posicion 2 hay 2
+En la posicion 3 hay 3
+Puntero sin inicializar pb=0x100000
+Apuntamos a una zona segura pb=&b 
+Puntero inicializado pb=0x7fffd6508ae7, &b=0x7fffd6508ae7 b=H *pb=H
+Veamos como el compilador interpreta el tipo de los punteros....
+Los punt a enteros se incrementan en 4 y los de chars en 1 automaticamente
+ENTEROS
+Direccion 0 de buff de enteros 0x7fffd6508b00
+Direccion 1 de buff de enteros 0x7fffd6508b04
+Direccion 2 de buff de enteros 0x7fffd6508b08
+Direccion 3 de buff de enteros 0x7fffd6508b0c
+CHARS 
+Direccion 0 de buff de caracteres 0x7fffd6508b1c
+Direccion 1 de buff de caracteres 0x7fffd6508b1d
+Direccion 2 de buff de caracteres 0x7fffd6508b1e
+Direccion 3 de buff de caracteres 0x7fffd6508b1f

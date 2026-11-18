@@ -1,0 +1,13 @@
+# Binaries & Compiled
+*.exe
+*.o
+*.out
+*.app
+*.tgz
+*.tar.gz
+*.zip
+
+# IDE & OS
+.vscode/
+.DS_Store
+Thumbs.db
