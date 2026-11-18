@@ -6,6 +6,12 @@
 [![OS](https://img.shields.io/badge/OS-Linux_POSIX-FCC624?style=for-the-badge&logo=linux&logoColor=black)](https://www.kernel.org)
 [![University](https://img.shields.io/badge/UPC-FIB-0070BA?style=for-the-badge)](https://www.fib.upc.edu)
 
+> [!NOTE]
+> **Estat del repositori & Migració en curs:**  
+> El contingut complet d'aquesta assignatura es troba actualment en procés de migració des d'un altre disc dur. Aniré afegint a poc a poc més laboratoris, exercicis i apunts quan disposi de temps lliure.  
+> 
+> *Aquest repositori té una finalitat secundària com a demostració del meu coneixement base en fonaments de baix nivell i sistemes (el focus primordial del meu perfil professional i desenvolupament es troba en els meus projectes d'enginyeria de programari).*
+
 ---
 
 ## 📚 Temari i Conceptes Clau
