@@ -25,6 +25,12 @@ El repositori inclou les **8 sessions de laboratori pràctiques completes**, cad
 
 ---
 
+## 📝 Exàmens de Laboratori
+
+- [**Control de Laboratori 1 (2022-2023 Q1)**](EXAMENS/clab1_2022_2023_q1_A_cas.pdf): Enunciat complet d'examen sobre creació de processos amb `fork()`, mutació amb `grep` i sincronització asíncrona amb senyals (`SIGUSR1`, `SIGUSR2`).
+
+---
+
 ## 🛠️ Compilació i Execució
 
 Totes les sessions compten amb els seus respectius `Makefile` per compilar de forma automatitzada:
