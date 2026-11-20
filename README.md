@@ -25,13 +25,6 @@ El repositori inclou les **8 sessions de laboratori pràctiques completes**, cad
 
 ---
 
-## 📁 Materials Addicionals
-
-- **[`2021Q2/`](2021Q2/)**: Exercicis de laboratori i gestió de senyals (`espera_sig.c`, `n_espera_sig.c`).
-- **[`2223Q2/`](2223Q2/)**: Mesura de temps d'execució i processos (`proc_time.c`).
-
----
-
 ## 🛠️ Compilació i Execució
 
 Totes les sessions compten amb els seus respectius `Makefile` per compilar de forma automatitzada:
