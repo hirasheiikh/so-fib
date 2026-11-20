@@ -1,0 +1,7 @@
+e000 data
+d000 codigo
+9000 stack
+
+r-xp codigo
+rw-p stack o datos
+r--p data

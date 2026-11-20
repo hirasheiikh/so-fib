@@ -1,7 +1,5 @@
-all: listaParametros
-listaParametros: listaParametros.c
-	gcc -o listaParametros listaParametros.c
-run: listaParametros
-	./listaParametros > listaParametros
+all: numeros
+listaParametros: numeros.c
+	gcc -o numeros numeros.c
 clean:
-	rm -f listaParametros
+	rm numeros

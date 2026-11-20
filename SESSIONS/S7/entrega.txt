@@ -1,0 +1,30 @@
+
+PREGUNTA 63. ¿Qué contiene el fichero al final de la ejecución? ¿Contiene la salida del
+padre y del hijo, o sólo la del padre? ¿Cómo se explica ese contenido?
+
+El fitxer conté al final el següent:
+Inicio 
+Final
+Conté la sortida del pare i del fill, que ha rebut el missatge mitjançant la pipe del pare.
+
+
+PREGUNTA 64. ¿Acaba el programa padre? ¿y el hijo? ¿Por qué?
+Cap dels dos procesos acaba ja que el fill es queda bloquejat esperant missatges per part del pare
+i el pare es queda al waitpid esperant a que el fill acabi. 
+
+Això es deu a que no es tanca el canal d'escriptura de la pipe en cap moment pel que el fill pensa que
+encara queden missatges per llegir.
+
+PREGUNTA 65. Si quisiéramos que el lector también pudiera enviar un mensaje al escritor
+¿podríamos utilizar la misma pipe con nombre o deberíamos crear otra?
+Razona la respuesta.
+Sí, podríem fer servir la mateixa pipe, això ho faríem obrint i tancant canals quan calgui, és a dir tanquem al final de cada arxiu (lector i escritor).
+
+
+PREGUNTA 66. Entrega el fichero append.c
+
+PREGUNTA 67. Entrega el fichero invirtiendo_fichero.c
+
+PREGUNTA 68. Entrega el fichero insertarx2_lseek.c
+
+PREGUNTA 69. Entrega el fichero insertarx2_mmap.c

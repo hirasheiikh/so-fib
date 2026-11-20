@@ -1,0 +1,14 @@
+PREGUNTA 67.¿Qué contiene el fichero al final de la ejecución?¿Contiene la salida del padre y del hijo, o sólo la del padre? ¿Cómo se explica ese contenido?
+El fitxer conté al final el següent:
+Inicio 
+Final
+Conté la sortida del pare i del fill, que ha rebut el missatge mitjançant la pipe del pare.
+Aquest contingut es degut a que el canal de sortida passa a ser arxiu.
+
+
+PREGUNTA 68.¿Acaba el programa padre? ¿y el hijo? ¿Por qué?
+Ni el pare ni el fill acaben ja que el canal mai es tanca i el fill es queda bloquejat esperant a que arribi un missatge per la pipe. El pare també queda bloquejat esperant a que el fill acabi.
+
+
+PREGUNTA 69.Si quisiéramos que el lector también pudiera enviar un mensaje al escritor ¿podríamos utilizar la misma pipe con nombre o deberíamos crear otra? Razona la respuesta.
+Sí, obrint i tancant canals quan calgui, és a dir tanquem al final de cada arxiu (lector i escritor).

@@ -1,0 +1,17 @@
+PREGUNTA 70
+
+    Coste Procesos: 1000 iteracions: 0.892 s 10000 iteracions: 9.120 s 100000 iteracions: 92.450 s
+
+    Coste Threads: 1000 iteracions: 0.015 s 10000 iteracions: 0.130 s 100000 iteracions: 1.250 s
+
+PREGUNTA 71
+
+    Suma Paralela v2 (Mutex Global): 1 thread: 0.051 s 2 threads: 2.150 s 4 threads: 5.320 s 8 threads: 11.500 s
+
+    Suma Paralela v3 (Variable Local): 1 thread: 0.052 s 2 threads: 0.027 s 4 threads: 0.014 s 8 threads: 0.008 s
+
+PREGUNTA 72
+
+    Servidor Seqüencial (sleep 2s): 1 petició: 2.01 s 5 peticions: 10.05 s 10 peticions: 20.10 s
+
+    Servidor Threads (sleep 2s): 1 petició: 2.02 s 5 peticions: 2.04 s 10 peticions: 2.06 s

@@ -1,0 +1,99 @@
+PREGUNTA 46. Para los dos ejecutables (compilado estático y dinámico) observa su
+tamaño y la salida de los comandos nm y objdump. ¿En qué se
+diferencian?
+
+Veiem la variable globalArray i si fem nm mem1_dynamic a la consola, ens mostrarà que es troba a la posició 0000000000201040 B globalArray. Es troba a la regió .bss i és una variable global.
+
+Si fem objdump -d mem1_dynamic.exe i objdump -d mem1_static.exe ens sortirà, respectivament, el següent:
+mem1_dynamic ocupa 8.552 bytes
+mem1_static ocupa 844.888 bytes
+
+PREGUNTA 47. Observa el contenido del fichero maps del /proc para cada proceso y
+apunta para cada región: dirección inicial, dirección final y etiqueta
+asociada. ¿Qué diferencia hay entre el maps de cada proceso?
+
+
+La diferència la trobem en que en el mem1_dynamic conté direccions de memòria que apunten a llibreries que no es troben a l'executable dinàmic
+
+mem1_dynamic:
+	55ff30525000-55ff30526000 r-xp 00000000 08:05 524442                     /home/SO/S5/mem1_dynamic.exe
+	55ff30725000-55ff30726000 r--p 00000000 08:05 524442                     /home/SO/S5/mem1_dynamic.exe
+	55ff30726000-55ff30727000 rw-p 00001000 08:05 524442                     /home/SO/S5/mem1_dynamic.exe
+	55ff30727000-55ff30728000 rw-p 00000000 00:00 0
+	55ff31dad000-55ff31dce000 rw-p 00000000 00:00 0  ---> inicial heap       [heap] 
+	7f2991abb000-7f2991ca2000 r-xp 00000000 08:05 143053                     /lib/x86_64-linux-gnu/libc-2.27.so
+	7f2991ca2000-7f2991ea2000 ---p 001e7000 08:05 143053                     /lib/x86_64-linux-gnu/libc-2.27.so
+	7f2991ea2000-7f2991ea6000 r--p 001e7000 08:05 143053                     /lib/x86_64-linux-gnu/libc-2.27.so
+	7f2991ea6000-7f2991ea8000 rw-p 001eb000 08:05 143053                     /lib/x86_64-linux-gnu/libc-2.27.so
+	7f2991ea8000-7f2991eac000 rw-p 00000000 00:00 0
+	7f2991eac000-7f2991ed3000 r-xp 00000000 08:05 141631                     /lib/x86_64-linux-gnu/ld-2.27.so
+	7f29920b9000-7f29920bb000 rw-p 00000000 00:00 0
+	7f29920d3000-7f29920d4000 r--p 00027000 08:05 141631                     /lib/x86_64-linux-gnu/ld-2.27.so
+	7f29920d4000-7f29920d5000 rw-p 00028000 08:05 141631                     /lib/x86_64-linux-gnu/ld-2.27.so
+	7f29920d5000-7f29920d6000 rw-p 00000000 00:00 0	 ---> final heap
+	7ffebe15b000-7ffebe17c000 rw-p 00000000 00:00 0  ---> direcció pila      [stack]
+	7ffebe195000-7ffebe198000 r--p 00000000 00:00 0                          [vvar]
+	7ffebe198000-7ffebe19a000 r-xp 00000000 00:00 0                          [vdso]
+	ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+mem1_static:
+	00400000-004b6000 r-xp 00000000 08:05 524444                             /home/SO/S5/mem1_static.exe
+	006b6000-006bc000 rw-p 000b6000 08:05 524444                             /home/SO/S5/mem1_static.exe
+	006bc000-006be000 rw-p 00000000 00:00 0
+	01052000-01075000 rw-p 00000000 00:00 0       ---> direcció heap         [heap]
+	7ffda2385000-7ffda23a6000 rw-p 00000000 00:00 0 ---> direcció pila       [stack]
+	7ffda23fa000-7ffda23fd000 r--p 00000000 00:00 0                          [vvar]
+	7ffda23fd000-7ffda23ff000 r-xp 00000000 00:00 0                          [vdso]
+	ffffffffff600000-ffffffffff601000 r-xp 00000000 00:00 0                  [vsyscall]
+
+PREGUNTA 48. ¿A qué región de las descritas en el maps pertenece cada variable (ptr,
+cons1, resp, argn y argk) y cada región reservada con malloc? Apunta la
+dirección inicial, dirección final y el nombre de la región y relaciona los
+resultados con las secciones de cada programa detalladas por el comando
+nm.
+
+mem1_dynamic: 	     globalArray ---> 5597fec01000-5597fec02000 rw-p 00001000 08:05 524442 		       /home/SO/S5/mem1_dynamic.exe
+		     localArray  ---> 7ffe92f28000-7ffe92f49000 rw-p 00000000 00:00 0                          [stack]
+		     p           ---> 5598001c1000-5598001e2000 rw-p 00000000 00:00 0                          [heap]
+
+mem1_static: 	     globalArray ---> 006b6000-006bc000 rw-p 000b6000 08:05 524444  			       /home/SO/S5/mem1_dynamic.exe
+		     localArray  ---> 7ffe3156f000-7ffe31590000 rw-p 00000000 00:00 0                          [stack]
+		     p           ---> 009b6000-009d9000 rw-p 00000000 00:00 0                                  [heap]
+
+
+PREGUNTA 49. Para cada ejecución apunta el número de invocaciones a malloc y la
+dirección inicial y final del heap que muestra el fichero maps del /proc.
+¿Cambia el tamaño del heap según el parámetro de entrada? ¿Por qué?
+
+3:	Número de mallocs ---> 3
+	Dir. inicial-Dir. final ---> 564157c99000-564157cba000 rw-p 00000000 00:00 0                          [heap]
+
+5:	Número de mallocs ---> 5
+	Dir. inicial-Dir. final ---> 55ffd5ae1000-55ffd5b02000 rw-p 00000000 00:00 0                          [heap]
+
+100:	Número de mallocs ---> 100
+	Dir. inicial-Dir. final ---> 55a65e1d9000-55a65e25d000 rw-p 00000000 00:00 0                          [heap]
+
+Segons quin paràmetre passem per fer l'execució es crearan més o menys paràmetres, és a dir, es reservarà més memòria i, evidentment, el tamany canviarà.
+
+
+PREGUNTA 50. ¿Cuál es el tamaño del heap en este caso? Explica los resultados.
+Dir. inicial-Dir. final ---> 558998ef4000-558998f15000 rw-p 00000000 00:00 0                          [heap]
+El tamany del heap ja no és tant gran ja que a cada iteració del for fem un free(p) que allibera l'espai a la memòria.
+
+PREGUNTA 51. ¿Cuál es el valor que ve el hijo en la variable al principio de su ejecución?
+¿Cómo justificas ese comportamiento?
+
+PREGUNTA 52. ¿A qué región de las descritas en el maps pertenece la región reservada
+con mmap? Indica la dirección inicial y la dirección final. ¿Cuál es el valor
+que ve el padre en la variable al final de la ejecución? ¿Cómo justificas ese
+comportamiento?
+
+PREGUNTA 53. ¿Cuál es el valor que ve el padre en la variable al final de la ejecución?
+¿Cómo justificas ese comportamiento?
+
+PREGUNTA 54. Compara el contenido del fichero maps del /proc para los programas
+mem2_v2 y mem2_v3. ¿En qué se diferencian?
+
+PREGUNTA 55. ¿Qué error contiene el código del programa? ¿Por qué el programa no falla
+en las primeras iteraciones?

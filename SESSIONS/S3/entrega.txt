@@ -1,0 +1,207 @@
+Sesión 3: Procesos
+
+PREGUNTA 18. ¿Cómo puede saber un proceso el pid de sus hijos? ¿Qué llamada pueden utilizar los procesos para consultar su propio PID?
+
+Con el fork() el proceso puede saber el PID de sus hijos, el cual retorna en forma de entero. 
+Para consultar su propio PID con la función de getpid().
+
+PREGUNTA 19. ¿En qué casos se ejecutará cualquier código que aparezca justo después de la llamada execlp (En cualquier caso/ En caso que el execlp se ejecute de forma correcta/ En caso que el exclp falle)?
+
+En caso que el exclp falle.
+
+PREGUNTA 20. ¿Qué directorios hay dentro de /proc/PID_PADRE? ¿Qué opción de ls has usado?
+El PID del padre retornado después de ejecutar el programa ha sido: 201547
+dr-xr-xr-x  9 user user 0 Oct  3 17:36 201547 -> esta ha sido la información obtenida en ls de /proc.
+Haciendo ls - l hemos obtenido detalles de los ficheros dentro del directorio del PID_PADRE
+total 0
+-r--r--r--  1 user user 0 Oct  3 17:47 arch_status
+dr-xr-xr-x  2 user user 0 Oct  3 17:47 attr
+-r--------  1 user user 0 Oct  3 17:47 auxv
+-r--r--r--  1 user user 0 Oct  3 17:47 cgroup
+--w-------  1 user user 0 Oct  3 17:47 clear_refs
+-r--r--r--  1 user user 0 Oct  3 17:36 cmdline
+-rw-r--r--  1 user user 0 Oct  3 17:47 comm
+-rw-r--r--  1 user user 0 Oct  3 17:47 coredump_filter
+-r--r--r--  1 user user 0 Oct  3 17:47 cpuset
+lrwxrwxrwx  1 user user 0 Oct  3 17:36 cwd -> '/home/user/so/S3'
+-r--------  1 user user 0 Oct  3 17:47 environ
+lrwxrwxrwx  1 user user 0 Oct  3 17:47 exe -> '/home/user/so/S3/myPS'
+dr-x------  2 user user 0 Oct  3 17:36 fd
+dr-xr-xr-x  2 user user 0 Oct  3 17:47 fdinfo
+-rw-r--r--  1 user user 0 Oct  3 17:47 gid_map
+-r--------  1 user user 0 Oct  3 17:47 io
+-r--r--r--  1 user user 0 Oct  3 17:47 limits
+-rw-r--r--  1 user user 0 Oct  3 17:47 loginuid
+dr-x------  2 user user 0 Oct  3 17:47 map_files
+-r--r--r--  1 user user 0 Oct  3 17:47 maps
+-rw-------  1 user user 0 Oct  3 17:47 mem
+-r--r--r--  1 user user 0 Oct  3 17:47 mountinfo
+-r--r--r--  1 user user 0 Oct  3 17:47 mounts
+-r--------  1 user user 0 Oct  3 17:47 mountstats
+dr-xr-xr-x 65 user user 0 Oct  3 17:47 net
+dr-x--x--x  2 user user 0 Oct  3 17:47 ns
+-rw-r--r--  1 user user 0 Oct  3 17:47 oom_adj
+-r--r--r--  1 user user 0 Oct  3 17:47 oom_score
+-rw-r--r--  1 user user 0 Oct  3 17:47 oom_score_adj
+-r--------  1 user user 0 Oct  3 17:47 pagemap
+-r--------  1 user user 0 Oct  3 17:47 personality
+-rw-r--r--  1 user user 0 Oct  3 17:47 projid_map
+lrwxrwxrwx  1 user user 0 Oct  3 17:47 root -> /
+-rw-r--r--  1 user user 0 Oct  3 17:47 sched
+-r--r--r--  1 user user 0 Oct  3 17:47 schedstat
+-r--r--r--  1 user user 0 Oct  3 17:47 sessionid
+-rw-r--r--  1 user user 0 Oct  3 17:47 setgroups
+-r--r--r--  1 user user 0 Oct  3 17:47 smaps
+-r--r--r--  1 user user 0 Oct  3 17:47 smaps_rollup
+-r--------  1 user user 0 Oct  3 17:47 stack
+-r--r--r--  1 user user 0 Oct  3 17:36 stat
+-r--r--r--  1 user user 0 Oct  3 17:47 statm
+-r--r--r--  1 user user 0 Oct  3 17:36 status
+-r--------  1 user user 0 Oct  3 17:47 syscall
+dr-xr-xr-x  3 user user 0 Oct  3 17:47 task
+-rw-r--r--  1 user user 0 Oct  3 17:47 timens_offsets
+-r--r--r--  1 user user 0 Oct  3 17:47 timers
+-rw-rw-rw-  1 user user 0 Oct  3 17:47 timerslack_ns
+-rw-r--r--  1 user user 0 Oct  3 17:47 uid_map
+-r--r--r--  1 user user 0 Oct  3 17:47 wchan
+
+PREGUNTA 21. Apunta el contenido de los ficheros status y cmdline. Compara el contenido del fichero environ con el resultado del comando env (fíjate por ejemplo en la variable PATH y la variable PWD) ¿Qué relación hay? Busca en el contenido del fichero status el estado en el que se encuentra el proceso y apúntalo en el fichero de respuestas. 
+PID_PADRE: 211443
+cmdline: ./myPS_v0
+
+status:
+Name:   myPS_v0
+Umask:  0022
+State:  R (running)
+Tgid:   211443
+Ngid:   0
+Pid:    211443
+PPid:   171729
+TracerPid:      0
+Uid:    1000    1000    1000    1000
+Gid:    1000    1000    1000    1000
+FDSize: 256
+Groups: 4 20 24 25 27 29 30 44 46 116 1000
+NStgid: 211443
+NSpid:  211443
+NSpgid: 211443
+NSsid:  171729
+VmPeak:     2664 kB
+VmSize:     2644 kB
+VmLck:         0 kB
+VmPin:         0 kB
+VmHWM:       960 kB
+VmRSS:       960 kB
+RssAnon:              92 kB
+RssFile:             868 kB
+RssShmem:              0 kB
+VmData:       92 kB
+VmStk:       132 kB
+VmExe:         4 kB
+VmLib:      1796 kB
+VmPTE:        36 kB
+VmSwap:        0 kB
+HugetlbPages:          0 kB
+CoreDumping:    0
+THP_enabled:    1
+Threads:        1
+SigQ:   1/15245
+SigPnd: 0000000000000000
+ShdPnd: 0000000000000000
+SigBlk: 0000000000000000
+SigIgn: 0000000000000000
+SigCgt: 0000000000000000
+CapInh: 0000000000000000
+CapPrm: 0000000000000000
+CapEff: 0000000000000000
+CapBnd: 000001ffffffffff
+CapAmb: 0000000000000000
+NoNewPrivs:     0
+Seccomp:        0
+Seccomp_filters:        0
+Speculation_Store_Bypass:       thread vulnerable
+SpeculationIndirectBranch:      conditional enabled
+Cpus_allowed:   ff
+Cpus_allowed_list:      0-7
+Mems_allowed:   1
+Mems_allowed_list:      0
+voluntary_ctxt_switches:        0
+nonvoluntary_ctxt_switches:     3
+
+El proceso se encuentra en R -> Running
+
+PREGUNTA 22. ¿A qué ficheros "apuntan" los ficheros cwd y exe? ¿Cuál crees que es el significado de cwd y exe?
+cwd -> /home/user/so/S3
+Apunta al directorio donde se encuentran los ficheros que al ejecutar el proceso padre
+exe -> /home/user/so/S3/myPS_v0
+Apunta directamente al proceso padre
+
+PREGUNTA 23.En el caso del proceso hijo, ¿puedes mostrar el contenido de los ficheros environ, status y cmdline del proceso hijo? ¿En qué estado se encuentra?
+
+Con myPS_v0 no se puede, creemos que se debe a que el hijo se encuentra en estado zombie.
+Con myPS sí que podemos porque el hijo se encuentra en estado RUNNING.
+
+PREGUNTA 24.En el caso del proceso hijo, ¿a qué ficheros “apuntan” los ficheros cwd y exe? ¿Cuál crees que es el significado de cwd y exe? ¿Qué diferencias hay con la versión anterior? ¿A qué se deben?
+
+No se puede mostrar ya que dice que en pantalla sale “permiso denegado”. Esto se debe a que esté en estado ‘zombie’. Debería apuntar al mismo exe que el padre
+
+PREGUNTA 25.En el caso del proceso hijo, ¿puedes mostrar el contenido de los ficheros environ, status y cmdline del proceso hijo? ¿En qué estado se encuentra? ¿Qué diferencias hay con la versión anterior? ¿A qué se deben?
+
+
+Name:	ps
+State:	Z (zombie)
+Tgid:	211444
+Ngid:	0
+Pid:	211444
+PPid:	211443
+TracerPid:	0
+Uid:	1000	1000	1000	1000
+Gid:	1000	1000	1000	1000
+FDSize:	0
+Groups:	4 24 27 30 46 122 134 135 1000
+NStgid:	4788
+NSpid:	4788
+NSpgid:	4787
+NSsid:	4228
+Kthread:	0
+Threads:	1
+SigQ:	0/62481
+SigPnd:	0000000000000000
+ShdPnd:	0000000000000000
+SigBlk:	0000000000000000
+SigIgn:	0000000000000000
+SigCgt:	0000000073d1fef9
+CapInh:	0000000000000000
+CapPrm:	0000000000000000
+CapEff:	0000000000000000
+CapBnd:	000001ffffffffff
+CapAmb:	0000000000000000
+NoNewPrivs:	0
+Seccomp:	0
+Seccomp_filters:	0
+Speculation_Store_Bypass:	thread vulnerable
+SpeculationIndirectBranch:	conditional enabled
+Cpus_allowed:	fff
+Cpus_allowed_list:	0-11
+Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+Mems_allowed_list:	0
+voluntary_ctxt_switches:	2
+nonvoluntary_ctxt_switches:	0
+x86_Thread_features:    
+x86_Thread_features_locked:
+
+environ: cat: “environ: Permiso denegado”
+smdline no ejecuta nada
+
+Se encuentra en estado zombie. Está esperando que el padre haga waitpid para eliminar el PCB de la memoria
+
+PREGUNTA 26.Comprueba el fichero status de /proc/PID_PADRE. ¿En qué estado está el proceso padre?
+El padre está en proceso Waiting
+
+PREGUNTA 27.¿Qué has hecho para guardar la salida de las ejecuciones de myPS3?
+Después del comando ejecutable he añadido />output.txt
+
+
+
+
+

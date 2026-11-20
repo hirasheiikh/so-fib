@@ -1,0 +1,21 @@
+1- Crea una pipe con nombre mediante el comando mknod. A continuación lanza un proceso que ejecute el programa ‘cat’ redireccionando su salida estándar hacia la pipe que acabas de crear. En una shell diferente lanza otro proceso que ejecute también el programa ‘cat’, pero ahora redireccionando su entrada estándar hacia la pipe que acabas de crear. Introduce datos por teclado, en la primera Shell, y pulsa ^D para indicar el fin. Anota en el fichero “previo.txt” los comandos que has ejecutado.
+
+mknod pipe pipe
+cat < pipe
+cat > pipe	// des d'una altra terminal
+
+2-¿Es posible comunicar los dos comandos ‘cat’ desde dos terminales diferentes a través de una pipe sin nombre (por ejemplo, utilizando un pipeline de la shell visto en la sesión anterior)? ¿y desde el mismo terminal? Razona la respuesta en el fichero “previo.txt”.
+
+No es possible comunicar-los des de dues terminals diferents perquè les pipes sense nom estan lligades a un mateix procés. Per tant si les volem comunicar ho haurem de fer des d'una terminal ja que és el mateix procés.
+
+3-Escribe en el fichero “previo.txt” el fragmento de código que deberíamos añadir a un programa cualquiera para redireccionar su entrada estándar al extremo de escritura de una pipe sin nombre utilizando las llamadas al sistema close y dup. Imagina que el descriptor de fichero asociado al extremo de escritura de la pipe es el 4.
+
+dup2(0,4);
+close(4);
+
+4-El fichero “socketMng.c” contiene unas funciones de gestión básica de sockets (creación, solicitud de conexión, aceptación de conexión y cierre de dispositivos virtuales).
+Analiza en detalle el código de la función createSocket y serverConnection, y busca en el man el significado de las llamadas a sistema socket, bind, listen y accept.
+Explica en el fichero “previo.txt” paso a paso lo que hacen estas dos funciones.
+
+La funció createSocket crea una direcció amb strcpy i crea un socket nou amb socket() y comprova que no hi hagi cap error.
+La funció serverConnection comprova que no hi hagi cap error durant la creació del socket. Si no ha fallat retorna el descriptor i si no retorna -1.

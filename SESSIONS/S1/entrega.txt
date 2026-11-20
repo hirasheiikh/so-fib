@@ -1,0 +1,86 @@
+SESSIÓ 1 - Sistemes Operatius (UPC · FIB)
+
+PREGUNTA 1. ¿Qué comandos habéis utilizado para crear los directorios S1..S5?
+    -He fet servir la comanda mkdir + el nom del directori a crear.
+
+PREGUNTA 2. ¿Qué comando utilizas para listar el contenido de un directorio? ¿Qué
+opción hay que añadir para ver los ficheros ocultos?
+    -La comanda que he fet servir per llistar el contingut del directori ha sigut "ls".
+    -La comanda que he fet servir per a poder veure els fitxers ocults ha estat "ls -a".
+
+PREGUNTA 3. ¿Qué opción hay que añadir a ls para ver información extendida de los
+ficheros? ¿Qué campos se ven por defecto con esa opción? (si no
+encuentras la información en el man pregunta a tu profesor)
+    -Per poder veure la informació extesa dels fitxers cal afegir el paràmetre "-i" a la comanda "ls".
+    -La comanda sencera serà "ls -i".
+    -Amb aquesta opció podem veure el número del inode dels fitxers del directori junt al nom d'aquests
+    fitxers.
+
+PREGUNTA 4. ¿Qué opciones de menú has activado para extender la información que
+muestra el File Browser?
+    -Per a veure més informació sobre algun fitxer en concret desde el File Brower el que he fet ha 
+    estat seleccionar el fitxer amb el botó esquerre del ratolí fent que es desplegui un menú del qual
+    seleccionem "Propietats".
+    -Un cop dins del desplegable que apareixerà podem observar la mateixa informació que ens surt amb la 
+    comanda "ls -la". Aquesta informació serà: els permisos del fitxer, el nombre de fitxers que es pot 
+    accedir de manera directa desde on estem (hardlink), el propietari del fitxer, els grups que poden 
+    accedir (en cas de tenir-ho permés), la mida del fitxer i per últim, la data i hora de la última modificació.
+
+PREGUNTA 5. ¿Qué secuencia de comandos has ejecutado para borrar un directorio,
+comprobar que no está y volver a crearlo?
+    -La seqüència de comandes que he fet servir ha estat: rmdir + nom del directori que vull eliminar
+    i mkdir + el nom del directori que acabo d'esborrar.
+
+PREGUNTA 6. ¿Qué diferencia hay entre el comando cat y less?
+    -
+
+PREGUNTA 7. ¿Para qué sirve la opción -i del comando cp? ¿Cuál es la orden para hacer
+un alias del comando cp que incluya la opción -i?
+
+PREGUNTA 8. ¿Qué hace la opción -i del comando rm? ¿Y la opción -i del mv? Escribe la
+orden para hacer un alias del comando rm que incluya la opción -i.
+
+PREGUNTA 9. ¿Qué opciones de chmod has utilizado para dejar solamente los permisos
+de escritura? ¿Qué resultado ha devuelvo cat al intentar ver el fichero test?
+¿Qué opciones de chmod has utilizado para dejar solamente los permisos
+de lectura? ¿Has conseguido borrarlo?
+
+PREGUNTA 10. ¿Qué línea de comandos has ejecutado para mostrar la información del
+inodo del fichero test?
+
+PREGUNTA 11. ¿Cuántos enlaces (links) tiene el directorio S1?
+
+PREGUNTA 12. ¿De qué tipo es cada uno de links creados, sl_pr y hl_pr?
+
+PREGUNTA 13. ¿Cuál es el número de links que tiene cada fichero? ¿Qué significa ese
+valor? ¿Qué inodo tiene cada fichero?
+
+PREGUNTA 14. ¿Observas alguna diferencia en el resultado de alguno de los comandos
+cuando se ejecutan sobre sl_pr y cuando se ejecutan sobre hl_pr? Si hay
+alguna diferencia, explica el motivo.
+
+PREGUNTA 15. ¿Observas alguna diferencia en el resultado de alguno de los comandos
+cuando se ejecutan sobre sl_pr y cuando se ejecutan sobre hl_pr? Si hay
+alguna diferencia, explica el motivo.
+
+PREGUNTA 16. ¿Observas alguna diferencia respecto a la ejecución de estos comandos
+antes y después de borrar el fichero pr.txt? Si hay alguna diferencia,
+explica el motivo.
+
+PREGUNTA 17. ¿Cómo podéis saber los sistemas de ficheros montados en vuestro
+sistema y de qué tipo son? Indica, además, en qué directorios están
+montados.
+
+PREGUNTA 18. ¿Cómo se puede saber el número de inodos libres de un sistema de
+ficheros? ¿Qué comando has utilizado y con qué opciones?
+
+PREGUNTA 19. ¿Cómo se puede saber el espacio libre de un sistema de ficheros? ¿Qué
+comando has utilizado y con qué opciones?
+
+PREGUNTA 20. ¿Cuál es el significado de las variables de entorno PATH, HOME y PWD?
+
+PREGUNTA 21. La variable PATH es una lista de directorios, ¿Qué carácter hace de
+separador entre un directorio y otro?
+
+PREGUNTA 22. ¿Qué comando has usado para definir y consultar el valor de las nuevas
+variables que has definido?

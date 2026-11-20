@@ -1,47 +1,20 @@
-x
-Sessió 6 - Hira Sheikh
+Sessió 6 - Sistemes Operatius (UPC · FIB)
 
 1. ¿Qué valor devuelve la llamada read después de pulsar el ^D?
-La llamada 'read' devuelve 0. El caràcter ^D (Control+D) s'interpreta com el fin de fichero. 
+La llamada 'read' devuelve 0. El caràcter ^D (Control+D) s'interpreta com el final de fitxer (EOF).
 El codi d'exemple es1.c gestiona aquest valor 0 per acabar el bucle de lectura.
 
-2. Crea un fichero con un editor de texto cualquiera y lanza el programa ./es1 asociando 
-mediante la shell su entrada estándar a ese fichero. Recuerda (ver Sesión 1) que es 
-posible redireccionar la entrada (o la salida) estándar de un comando a un fichero 
-utilizando el carácter especial de la shell < (o > para la salida). Apunta el comando 
-utilizado en el fichero “previo.txt”.  
+2. Redirecció d'entrada des de fitxer:
+./es1 < dades.txt
 
-Suposant que el fitxer de text creat es diu 'dades.txt', la comanda seria: ./es1 < dades.txt
+2.1 i 2.2. Comanda: ls -l | grep es
+Mostra una llista dels fitxers del directori actual que contenen "es" en el seu nom.
 
-    2.1 i 2.2. Por ejemplo, en el directorio donde has descomprimido el fichero de la sesión, ejecuta el pipeline: 
-    #ls –l |grep es ¿Cuál es el resultado? ¿Qué operación realiza el comando ‘grep es’?  
+3. Pipeline per mostrar PID, usuari i comanda dels processos bash:
+ps -e -o pid,user,comm | grep bash
 
-    Mostra una llista dels fitxers del directori actual que contenen "es" en el seu nom. Basat en el contingut del S6.tar.gz, el resultat seria:
-    es1.c
-    es2.c
-    es3.c
-    es4.c
-    es5.c
-    es6.c
-    es7.c
-    es8.c
-    es9.c
+4. Programa es7_lector.c creat per a lectura binària de nombres enters mitjançant read() sobre el canal estàndard.
 
-    La comanda 'grep es'? llegeix la sortida estàndard del comando 'ls -1' (que rep a través de la seva entrada estàndard gràcies a la pipe) i filtra els resultats, mostrant només aquelles 
-    línies que contenen la cadena de caràcters "es".
-
-3. Ejecuta un pipeline que muestre en la salida estándar el PID, el usuario y el nombre de  todos los procesos bash que se están ejecutando en el sistema. Para ello utiliza los 
-comandos ps y grep combinados con una pipe. Anota el comando en el fichero “previo.txt”. 
-
-La comanda per mostrar el PID, l'usuari i el nom de tots els processos 'bash' és: ps -e -o pid,user,comm | grep bash
-
-4. Fer progerama es7_eslector.c
-
-5. Preguntes es8.c 
-    5.1 ¿Cuántos bytes se escriben en cada caso?
-    - En el primer cas: S'escriuen sizeof(int) bytes, això són 4 bytes en una màquina de 32 bits.
-    - En el segon cas: S'escriuen 5 bytes, que corresponen a la longitud de la cadena "10562" (obtinguda amb strlen(strnum)).
-
-    5.2 ¿Qué diferencias observas en lo que aparece en pantalla?
-    - En el primer cas, la consola rep 4 bytes de dades i els intenta interpretar com a caràcters ASCII. Com que no són caràcters imprimibles, el resultat són símbols il·legibles.
-    - En el segon cas, la consola rep els 5 bytes corresponents als caràcters ASCII '1', '0', '5', '6', '2', i per tant, mostra el número "10562" de forma llegible.
+5. Preguntes es8.c:
+5.1 S'escriuen sizeof(int) (4 bytes en binari) vs strlen(strnum) (bytes ASCII de la cadena).
+5.2 El primer cas genera bytes no imprimibles, el segon mostra el text llegible en consola.
